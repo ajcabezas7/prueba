@@ -1,0 +1,77 @@
+NOT NULL DEFAULT '' PRIMARY KEY
+ UNIQUE
+INDEX(entityName)
+NOT NULL DEFAULT'lead'
+NOT NULL DEFAULT 0
+
+CREATE TABLE Profile
+(
+  _id VARCHAR(36) NOT NULL DEFAULT '' PRIMARY KEY
+, typeAccount VARCHAR(255)
+, name VARCHAR(255)
+, secondName VARCHAR(255)
+, lastName VARCHAR(255)
+, secondLastName VARCHAR(255)
+, birthDate BIGINT
+, documentType VARCHAR(255)
+, document VARCHAR(255), INDEX(document)
+, documentCity VARCHAR(255)
+, documentRegion VARCHAR(255)
+, phone VARCHAR(255)
+, address VARCHAR(255)
+, addressRegion VARCHAR(255)
+, addressCity VARCHAR(255)
+, email VARCHAR(255) NOT NULL UNIQUE
+, entityId VARCHAR(36), INDEX(entityID)
+, maxValueTransaction INT
+, complete BOOLEAN NOT NULL DEFAULT 0
+, contractsAccepted BOOLEAN NOT NULL DEFAULT 0
+, documentsValidated BOOLEAN NOT NULL DEFAULT 0
+, createdAt BIGINT
+, modifiedAt BIGINT
+, hubspotId VARCHAR(25)
+, banned INT DEFAULT 0
+, referred_email VARCHAR(255)
+, genderType VARCHAR(255)
+, socioeconomicType VARCHAR(255)
+, source VARCHAR(255)
+, profession VARCHAR(255)
+, occupation VARCHAR(255)
+, complementaryAddress VARCHAR(100)
+, syncCRM BOOLEAN NOT NULL DEFAULT 1
+)
+;
+
+CREATE TABLE Entity
+(
+  _id VARCHAR(36) NOT NULL DEFAULT '' PRIMARY KEY
+, legalRepresentativeId VARCHAR(36) UNIQUE
+, typeUser INT NOT NULL
+, entityName VARCHAR(255), INDEX(entityName)
+, entityPhone VARCHAR(255)
+, entityAddress VARCHAR(255)
+, entityCity VARCHAR(255)
+, entityDocumentType VARCHAR(255)
+, entityRegion VARCHAR(255)
+, entityDocument VARCHAR(255), INDEX(entityDocument)
+, verificationDigit VARCHAR(25)
+, chambersCommerce VARCHAR(255)
+, legalConcept VARCHAR(255)
+, businessSector VARCHAR(255)
+, complete BOOLEAN NOT NULL DEFAULT 0
+, contractsAccepted BOOLEAN NOT NULL DEFAULT 0
+, documentsValidated BOOLEAN NOT NULL DEFAULT 0
+, createdAt BIGINT
+, modifiedAt BIGINT
+, bank VARCHAR(255)
+, bankType VARCHAR(255)
+, bankAccountNumber VARCHAR(255)
+, resourcesAvailableInvest VARCHAR(255)
+, hubspotId VARCHAR(25)
+, statusCrm VARCHAR(255) NOT NULL DEFAULT'lead'
+, femaleEmployees VARCHAR(255)
+, maleEmployees VARCHAR(255)
+, anual_sale VARCHAR(255)
+, entityComplementaryAddress VARCHAR(100)
+)
+;
